@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" href="{% static 'img/logo.png' %}" type="image/png"/>
+  <title>{{ title }}</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+
+{#    Admin lte theme#}
+    <link rel="stylesheet" href="{% static 'lib/adminlte-3.2.0/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'lib/adminlte-3.2.0/css/adminlte.min.css' %}">
+    <!-- jQuery -->
+    <script src="{% static 'lib/adminlte-3.2.0/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'lib/adminlte-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'lib/adminlte-3.2.0/js/adminlte.min.js' %}"></script>
+    <!-- AdminLTE for demo purposes -->
+{#    <script src="{% static 'lib/adminlte-3.2.0/js/demo.js' %}"></script>#}
+
+   <!-- Sweet alert -->
+  <script src="{% static 'lib/sweet_alert/sweetalert2.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+    <link href="{% static 'lib/bootstrap-5.3.0/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'lib/bootstrap-5.3.0/js/bootstrap.bundle.min.js' %}" ></script>
+
+  {% block head %}
+
+  {% endblock %}
+</head>
+    {% block body %}
+    {# AQUI ES TODO EL CUERPO#}
+
+    {% endblock %}
+
+
+</html>

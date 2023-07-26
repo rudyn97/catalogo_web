@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+{#    <script src="{% static 'js/jquery.min.js' %}"></script>#}
+    {% comment %}<link rel="stylesheet" href="{% static 'lib/bootstrap-5.3.0/css/dataTables.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/data_tables/css/dataTables.bootstrap4.css' %}">{% endcomment %}
+    <link rel="stylesheet" href="{% static 'lib/data_tables/datatables.min.css' %}">
+    <script src="{% static 'lib/data_tables/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'lib/data_tables/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'lib/data_tables/datatables.min.js' %}"></script>
+    <script src="{% static 'lib/data_tables/datatables.js' %}"></script>
+
+    {% block head_list %}
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block content_body %}
+      {% block content %}
+
+      {% endblock %}
+{% endblock %}
+
+
+    <!-- Block javascript -->
+{% block javascript %}
+    <script>
+        $(function (){
+            $('#data').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+
+            $('.btnTest').on('click', function (){
+                $.ajax({
+                    url: '{% url "erp:category_list" %}',
+                    type: 'POST',
+                    data: {id: 1},
+                    dataType: 'json'
+                }).done(function (data){
+                    console.log(data);
+                }).fail(function (jqXHR, textStatus, errorThrown){
+                    alert(textStatus+': '+errorThrown);
+                    console.log(textStatus+': '+errorThrown);
+                }).always(function (data){
+
+                });
+            });
+        });
+    </script>
+{% endblock %}

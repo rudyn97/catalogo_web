@@ -1,0 +1,85 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block body %}
+    <body>
+
+    {% include 'header_product.html' %}
+
+    <section id="about" class="about" style="padding-top: 80px">
+      <div class="container-fluid">
+        <div class="row">
+         {% for t in todo_prod %}
+{#                <h1>{{ t }}</h1>#}
+
+                <img class="col-lg-4 align-items-stretch image-box"
+                        src="{{ t.producto.get_image }}" >
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+            <div class="content">
+              <h3><strong>{{ t.producto.name }}</strong></h3>
+{#              <p>#}
+{#                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit#}
+{#              </p>#}
+              <p class="fst-italic">
+                  {% if t.producto.desc != None %}
+                    {{ t.producto.desc }}
+                  {% endif %}
+              </p>
+            <div class="row">
+              <div class="col-sm-6">
+                <h5><strong>Ingredientes: </strong></h5>
+                <ul>
+                {% for i in t.producto.ingre %}
+                   {#INGREDIENTES#}
+                   <li><i class="bx bx-check-double"></i> {{ i }} </li>
+                {% empty %}
+                   . . .
+                {% endfor %}
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h5><strong>Agregados: </strong></h5>
+                <ul>
+                {% for i in t.producto.agreg %}
+                   {#INGREDIENTES#}
+                   <li><i class="bx bx-check-double"></i>
+                       <div class="row">
+                           <div class="col">{{ i.name }}</div>
+                           <div class="col" align="right">$ {{ i.pvp }}</div>
+                       </div>
+                    </li>
+{#                   <li><i class="bx bx-check-double"></i> {{ i }} </li>#}
+{#                    <div class="menu">#}
+{#                        <div class="menu-content">#}
+{#                            <a style="background: #fffaf3;" href="/4/">Pizza</a>#}
+{#                            <span style="background: #fffaf3;" >$150,00</span>#}
+{#                        </div>#}
+{#                    </div>#}
+
+
+                {% empty %}
+                   . . .
+                {% endfor %}
+                </ul>
+              </div>
+            </div>
+              <h5><strong>Categoría: </strong> {{ t.producto.cate }} </h5>
+
+                <h5 align="center"><strong> $ {{ t.producto.pvp }} </strong>  </h5>
+
+            </div>
+
+          </div>
+
+         {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+
+
+    </body>
+{% endblock %}
